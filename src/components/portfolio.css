@@ -1,0 +1,102 @@
+/* ============================================
+   PORTFOLIO — Premium, moderno, elegante
+   ============================================ */
+
+.portfolio-section {
+  padding: 100px 20px;
+  background: #0b0f19;
+  color: #fff;
+}
+
+/* TÍTULO */
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.portfolio-header h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.portfolio-header .subtitle {
+  font-size: 1.15rem;
+  opacity: 0.75;
+  margin-top: 12px;
+}
+
+/* GRID */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 35px;
+}
+
+/* CARD */
+.portfolio-card {
+  background: #131823;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.45);
+}
+
+/* IMG */
+.p-img {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  position: relative;
+}
+
+.p-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.portfolio-card:hover .p-img img {
+  transform: scale(1.08);
+}
+
+/* BODY */
+.p-body {
+  padding: 20px 24px;
+}
+
+.p-tag {
+  background: rgba(255, 255, 255, 0.08);
+  color: #d7d88b;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  display: inline-block;
+}
+
+.p-body h3 {
+  margin-top: 14px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+/* Animación general */
+.fade-in {
+  animation: fadeIn 0.9s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

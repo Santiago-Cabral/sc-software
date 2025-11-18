@@ -1,0 +1,180 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ========================= */
+/*   HERO / MATRIX BACKGROUND */
+/* ========================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 520px;
+  overflow: hidden;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 22%;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #060f1f);
+  z-index: 3;
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ========================= */
+/*        HERO CONTENT       */
+/* ========================= */
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  animation: fadeIn 1.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* TITULO */
+.hero-title {
+  font-size: 82px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.1;
+  animation: slideDown 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.hero-title span {
+  color: #d4c846;
+  font-size: inherit;
+}
+
+/* SUBTÍTULO */
+.hero-subtitle {
+  font-size: 26px;
+  margin-bottom: 32px;
+  color: #eee;
+  animation: fadeIn 2s ease-out forwards;
+  opacity: 0;
+}
+
+/* BOTONES */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  animation: fadeIn 2.3s ease-out forwards;
+  opacity: 0;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-primary {
+  background: #d4c846;
+  color: #000;
+  
+}
+
+.btn-primary:hover {
+  background: #f0e67a;
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #d4c846;
+  color: #d4c846;
+}
+
+.btn-secondary:hover {
+  background: #d4c846;
+  color: black;
+  transform: translateY(-3px);
+}
+
+/* ========================= */
+/*        ANIMACIONES        */
+/* ========================= */
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-25px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================= */
+/*        RESPONSIVE         */
+/* ========================= */
+
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 62px;
+  }
+  .hero-subtitle {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+  }
+  .hero-title {
+    font-size: 48px;
+  }
+  .hero-subtitle {
+    font-size: 19px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    font-size: 18px;
+    padding: 12px 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 38px;
+  }
+  .hero-subtitle {
+    font-size: 17px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

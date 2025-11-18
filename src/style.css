@@ -1,0 +1,141 @@
+:root {
+  --bg: #0d0d0d;
+  --card: #1a1a1a;
+  --text: #ffffff;
+  --gold: #e3b341;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: var(--card);
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  height: 40px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: black;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  border: 1px solid var(--gold);
+  padding: 12px 25px;
+  margin-left: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--gold);
+}
+
+/* Sections */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 40px;
+}
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 10px;
+}
+
+/* Pricing */
+.price {
+  color: var(--gold);
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Portfolio */
+.portfolio-card {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--gold);
+}
+
+/* Contact */
+.contact a {
+  color: var(--gold);
+}
+/* Fade-in general */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Slide desde abajo */
+.slide-up {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: slideUp 1s ease forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide desde la izquierda */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-35px);
+  animation: slideLeft 1s ease forwards;
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

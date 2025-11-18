@@ -1,0 +1,74 @@
+/* ============================
+        FOOTER
+============================ */
+
+.footer {
+  background: #0b0f19;
+  color: #ffffff;
+  padding: 55px 25px 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-container {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Brand */
+.footer-brand h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #d4d77e; /* dorado oliva */
+}
+
+.footer-brand p {
+  opacity: 0.7;
+}
+
+/* Titles */
+.footer-contact h4,
+.footer-social h4 {
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  color: #d4d77e;
+}
+
+.footer-contact ul,
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li,
+.footer-social li {
+  margin-bottom: 10px;
+  opacity: 0.85;
+  transition: 0.2s;
+}
+
+/* Links */
+.footer-contact a,
+.footer-social a {
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.25s;
+}
+
+.footer-contact a:hover,
+.footer-social a:hover {
+  color: #d4d77e;
+  border-bottom: 1px solid #d4d77e;
+}
+
+/* Bottom */
+.footer-copy {
+  margin-top: 45px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.55;
+}

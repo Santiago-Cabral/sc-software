@@ -1,0 +1,147 @@
+/* ============================================================
+   HEADER — Moderno, sticky, glass + dorado/oliva premium
+   ============================================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 22px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo {
+  height: 42px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.brand {
+  font-size: 1.2rem;
+  color: #a5a945;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* NAV desktop */
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.25s ease;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #a5a945;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: #a5a945;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Botón menú mobile */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 850px) {
+  .nav {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+}
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+
+    width: 100%;
+    padding: 20px 28px;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    transform: translateY(-15px);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s ease;
+  }
+
+  .mobile-nav.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav a {
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+}

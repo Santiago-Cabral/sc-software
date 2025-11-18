@@ -1,0 +1,60 @@
+/* ==========================================
+   SOPORTE & MANTENIMIENTO — Estilo premium
+========================================== */
+
+.ds-support {
+  background: linear-gradient(145deg, #0f1d36, #0b1529);
+  border: 1px solid rgba(77, 210, 255, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow interno */
+.ds-support::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(77, 210, 255, 0.18),
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.ds-support h3 {
+  color: #6ee8ff;
+}
+
+.ds-support ul li {
+  opacity: 0.95;
+}
+
+/* BOTÓN */
+.ds-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px 18px;
+  background: #4dd2ff;
+  color: #02121f;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.ds-btn:hover {
+  background: #7fe8ff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 12px rgba(77, 210, 255, 0.6);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .ds-btn {
+    padding: 14px;
+    font-size: 1.05rem;
+  }
+}

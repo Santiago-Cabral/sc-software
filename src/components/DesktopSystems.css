@@ -1,0 +1,107 @@
+.ds-section {
+  padding: 80px 20px;
+  background: #0b0b0b;
+  color: #fff;
+}
+
+.ds-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.ds-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ffcc00, #ff9900);
+  background-clip: text;
+  color: transparent;
+}
+
+.ds-desc {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin-bottom: 45px;
+}
+
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 25px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: .8s ease;
+}
+
+.ds-grid.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ds-card {
+  background: #141414;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid transparent;
+  transition: .3s;
+  box-shadow: 0px 0px 15px #000;
+}
+
+.ds-card:hover {
+  border-color: #ffcc00;
+  transform: translateY(-8px);
+}
+
+.ds-card h3 {
+  font-size: 1.5rem;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.ds-card p {
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.ds-card ul {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.ds-card ul li {
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: #aaa;
+  position: relative;
+}
+
+.ds-card ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #ffcc00;
+}
+
+.ds-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #ffcc00;
+  color: #332700;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.ds-btn:hover {
+  background: #ff9900;
+}
+
+.ds-general {
+  margin-top: 40px;
+  max-width: 400px;
+}

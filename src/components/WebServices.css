@@ -1,0 +1,107 @@
+.ws-section {
+  padding: 80px 20px;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.ws-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.ws-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #00eaff, #0088ff);
+  background-clip: text;
+  color: transparent;
+}
+
+.ws-desc {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 45px;
+}
+
+.ws-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 25px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: .8s ease;
+}
+
+.ws-grid.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ws-card {
+  background: #111;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid transparent;
+  transition: .3s;
+  box-shadow: 0px 0px 15px #000;
+}
+
+.ws-card:hover {
+  border-color: #00eaff;
+  transform: translateY(-8px);
+}
+
+.ws-card h3 {
+  font-size: 1.5rem;
+  color: #00eaff;
+  margin-bottom: 10px;
+}
+
+.ws-card p {
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.ws-card ul {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.ws-card ul li {
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: #aaa;
+  position: relative;
+}
+
+.ws-card ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #00eaff;
+}
+
+.ws-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #00eaff;
+  color: #000;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.ws-btn:hover {
+  background: #0088ff;
+}
+
+.ws-general {
+  margin-top: 40px;
+  max-width: 400px;
+}

@@ -1,0 +1,168 @@
+/* ============================================================
+   SERVICES SECTION — Diseño profesional, tech & clean
+   ============================================================ */
+
+.services-section {
+  padding: 90px 20px;
+  background: #0b0f19;
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+
+.services-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.services-header h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.services-header .subtitle {
+  font-size: 1.15rem;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* ---------- Grid ---------- */
+
+.services-grid {
+  display: grid;
+  gap: 35px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ---------- Cards ---------- */
+
+.service-card {
+  display: flex;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 0 transparent;
+  opacity: 0;
+  transform: translateY(25px) scale(0.97);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.service-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.service-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+}
+
+/* ---------- Icon ---------- */
+
+.icon-wrap {
+  min-width: 55px;
+  height: 55px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.service-card:hover .icon-wrap {
+  background: rgba(255, 255, 255, 0.16);
+  transform: scale(1.07);
+}
+
+.s-icon {
+  width: 28px;
+  height: 28px;
+  color: #777a19;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .s-icon {
+  color: #989c32;
+}
+
+/* ---------- Body ---------- */
+
+.svc-body h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.svc-desc {
+  margin-top: 6px;
+  font-size: 1rem;
+  opacity: 0.8;
+  line-height: 1.55;
+}
+
+/* ---------- Features ---------- */
+
+.svc-features {
+  margin-top: 14px;
+  list-style: none;
+  padding-left: 0;
+  opacity: 0.75;
+  font-size: 0.95rem;
+}
+
+.svc-features li {
+  margin: 4px 0;
+}
+
+/* ---------- Actions ---------- */
+
+.svc-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn.small {
+  background: #777a19;
+  color: #000;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.btn.small:hover {
+  background: #abaf41;
+  transform: translateY(-2px);
+}
+
+.link-more {
+  color: #777a19;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.link-more:hover {
+  color: #a5a945;
+  text-decoration: underline;
+}
