@@ -8,6 +8,7 @@ html, body {
 /* ========================= */
 /*   HERO / MATRIX BACKGROUND */
 /* ========================= */
+
 .hero {
   position: relative;
   width: 100%;
@@ -15,10 +16,12 @@ html, body {
   min-height: 520px;
   overflow: hidden;
   background: black;
+
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 20px;
+  text-align: center;
 }
 
 .hero::after {
@@ -29,7 +32,7 @@ html, body {
   width: 100%;
   height: 22%;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #060f1f);
+  background: linear-gradient(to bottom, rgba(0,0,0,0), #060f1f);
   z-index: 3;
 }
 
@@ -48,33 +51,35 @@ html, body {
 .hero-content {
   position: relative;
   z-index: 5;
-  text-align: center;
   color: white;
-  max-width: 900px;
+  max-width: 950px;
+  margin: 0 auto;
+
   animation: fadeIn 1.4s ease-out forwards;
   opacity: 0;
 }
 
 /* TITULO */
 .hero-title {
-  font-size: 82px;
+  font-size: clamp(2.3rem, 6vw, 5.2rem);
   font-weight: 700;
   margin-bottom: 10px;
-  line-height: 1.1;
+  line-height: 1.15;
+
   animation: slideDown 1.2s ease-out forwards;
   opacity: 0;
 }
 
 .hero-title span {
   color: #d4c846;
-  font-size: inherit;
 }
 
 /* SUBTÍTULO */
 .hero-subtitle {
-  font-size: 26px;
+  font-size: clamp(1rem, 2vw, 1.6rem);
   margin-bottom: 32px;
   color: #eee;
+
   animation: fadeIn 2s ease-out forwards;
   opacity: 0;
 }
@@ -83,26 +88,30 @@ html, body {
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: clamp(12px, 2vw, 20px);
+
   animation: fadeIn 2.3s ease-out forwards;
   opacity: 0;
 }
 
 .btn-primary,
 .btn-secondary {
-  padding: 14px 32px;
+  padding: clamp(10px, 2vw, 14px) clamp(22px, 4vw, 32px);
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 20px;
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
   cursor: pointer;
   transition: 0.25s ease;
 }
 
+/* ========================= */
+/*          COLORS           */
+/* ========================= */
+
 .btn-primary {
   background: #d4c846;
   color: #000;
-  
 }
 
 .btn-primary:hover {
@@ -127,54 +136,58 @@ html, body {
 /* ========================= */
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideDown {
-  0% { opacity: 0; transform: translateY(-25px); }
-  100% { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(-25px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ========================= */
 /*        RESPONSIVE         */
 /* ========================= */
 
-@media (max-width: 1024px) {
-  .hero-title {
-    font-size: 62px;
-  }
-  .hero-subtitle {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 768px) {
+/* PANTALLAS ALTAS (celulares largos) */
+@media (max-height: 650px) {
   .hero {
-    height: 70vh;
-  }
-  .hero-title {
-    font-size: 48px;
-  }
-  .hero-subtitle {
-    font-size: 19px;
-  }
-  .btn-primary,
-  .btn-secondary {
-    font-size: 18px;
-    padding: 12px 26px;
+    height: 90vh;
   }
 }
 
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 38px;
-  }
-  .hero-subtitle {
-    font-size: 17px;
-  }
+/* MOBILE */
+@media (max-width: 600px) {
   .hero-buttons {
     flex-direction: column;
-    gap: 12px;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
   }
 }
+
+/* EXTRA SMALL (iPhone SE, Android mini) */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* SUPER WIDE SCREENS (monitores grandes) */
+@media (min-width: 1600px) {
+  .hero {
+    height: 75vh;
+  }
+  .hero-title {
+    font-size: 5.5rem;
+  }
+}
+

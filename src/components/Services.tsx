@@ -18,7 +18,7 @@ const SERVICES: Service[] = [
     desc: "Landing pages, tiendas online y sitios corporativos optimizados para convertir.",
     features: ["Responsive", "SEO básico", "Integración WhatsApp"],
     icon: "web",
-    components:'/Web',
+    components:'/web',
   },
   {
     id: "mobile",
@@ -26,7 +26,7 @@ const SERVICES: Service[] = [
     desc: "Aplicaciones Android + iOS con panel administrativo y notificaciones push.",
     features: ["React Native", "Publicación en stores", "Integración APIs"],
     icon: "mobile",
-    components:'/Apps',
+    components:'/apps',
   },
   {
     id: "system",
@@ -34,7 +34,7 @@ const SERVICES: Service[] = [
     desc: "Gestión de ventas, stock, turnos, facturación y automatizaciones para tu negocio.",
     features: ["Reportes", "Roles y permisos", "Automatizaciones"],
     icon: "system",
-    components:'/Sistemas',
+    components:'/sistemas',
   },
 ];
 
