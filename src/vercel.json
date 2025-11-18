@@ -1,7 +1,5 @@
 {
     "rewrites":[
-        {"source":"/web","destination":"/WebServices.tsx"},
-        {"source":"/apps","destination":"/MobileApps.tsx"},
-        {"source":"/sistemas","destination":"/DesktopSystems.tsx"}
+         { "source": "/(.*)", "destination": "/" }
     ]
 }
