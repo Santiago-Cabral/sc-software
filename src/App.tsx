@@ -27,6 +27,9 @@ export default function App() {
             <>
               <Hero />
               <Services />
+              <WebServices />
+              <MobileApps />
+              <DesktopSystems />
               <Plans />
               <Portfolio />
               <Contact />
@@ -34,10 +37,7 @@ export default function App() {
           }
         />
 
-        {/* 🔹 Servicios individuales */}
-        <Route path="/web" element={<WebServices />} />
-        <Route path="/apps" element={<MobileApps />} />
-        <Route path="/sistemas" element={<DesktopSystems />} />
+        
       </Routes>
     </Router>
   );

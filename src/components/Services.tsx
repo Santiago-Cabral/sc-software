@@ -101,9 +101,7 @@ function ServiceCard({ s, delay = 0 }: { s: Service; delay?: number }) {
           <button className="btn small" onClick={sendWhatsapp} aria-label={`Contratar ${s.title}`}>
             Cotización GRATIS
           </button>
-          <a className="link-more" href={s.components} aria-label={`Más info ${s.title}`}>
-                Más info →
-          </a>
+        
         </div>
       </div>
     </article>
