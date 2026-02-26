@@ -280,7 +280,7 @@ export default function Chatbot() {
         .sc-chat-win {
           position:fixed; bottom:100px; right:28px; z-index:500;
           width:370px; max-width:calc(100vw - 40px);
-          max-height:570px;
+          height:570px; max-height:calc(100vh - 120px);
           background:#0E1318;
           border:1px solid rgba(0,229,255,0.15);
           border-radius:20px; overflow:hidden;
@@ -530,7 +530,7 @@ export default function Chatbot() {
               <svg width="9" height="9" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/>
               </svg>
-              Powered by Claude AI
+        
             </div>
           </div>
         </div>
