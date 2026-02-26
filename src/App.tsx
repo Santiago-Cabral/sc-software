@@ -10,7 +10,7 @@ import Plans from "./components/Plans";
 import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
 import SupportMaintenance from "./components/SupportMaintenance";
-import Chatbot from "./components/Chatbot";
+// import Chatbot from "./components/Chatbot";
 
 function ScrollReveal() {
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function App() {
         />
       </Routes>
       {/* Chatbot flota en todas las páginas */}
-      <Chatbot />
+        {/* <Chatbot /> */}
     </Router>
   );
 }
