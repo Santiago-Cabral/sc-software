@@ -1,44 +1,63 @@
+import { useEffect } from "react";
 import "./style.css";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
+import DetailedServices from "./components/Detailedservices";
 import Plans from "./components/Plans";
 import Portfolio from "./components/Portfolio";
-import Contact from "./components/Footer";
+import Footer from "./components/Footer";
+import SupportMaintenance from "./components/SupportMaintenance";
+import Chatbot from "./components/Chatbot";
 
-import WebServices from "./components/WebServices";
-import MobileApps from "./components/MobileApps";
-import DesktopSystems from "./components/DesktopSystems";
+function ScrollReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll(".sc-reveal:not(.visible)");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+  return null;
+}
 
 export default function App() {
   return (
     <Router>
+      <ScrollReveal />
       <Header />
-
       <Routes>
-
-        {/* 🔹 Landing principal */}
         <Route
           path="/"
           element={
             <>
               <Hero />
               <Services />
-              <WebServices />
-              <MobileApps />
-              <DesktopSystems />
+              <DetailedServices />
               <Plans />
               <Portfolio />
-              <Contact />
+              <Footer />
             </>
           }
         />
-
-        
+        <Route
+          path="/soporte"
+          element={<><SupportMaintenance /><Footer /></>}
+        />
       </Routes>
+      {/* Chatbot flota en todas las páginas */}
+      <Chatbot />
     </Router>
   );
 }
