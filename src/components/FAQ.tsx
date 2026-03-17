@@ -4,7 +4,6 @@ import useInView from "./useInView";
 const FAQS = [
   { q: "¿Cuánto tarda en estar listo mi proyecto?",   a: "Una landing page puede estar en 3–5 días. Una web completa o sistema a medida tarda entre 2 y 6 semanas. Siempre te damos un cronograma claro antes de empezar, con actualizaciones semanales." },
   { q: "¿Cuánto cuesta desarrollar una web o sistema?", a: "Una landing parte desde USD $200, una web completa desde USD $600, y sistemas a medida desde USD $1.000. La primera consulta es 100% gratis — te mandamos presupuesto detallado sin compromiso." },
-  { q: "¿El código es mío cuando termina el proyecto?", a: "Sí, absolutamente. Desde el día 1 el código es tuyo. Te entregamos acceso total al repositorio, al servidor y a todas las credenciales. Sin dependencias de nosotros para seguir operando." },
   { q: "¿Hacen apps mobile y sistemas de escritorio?",  a: "Sí. Desarrollamos apps Android e iOS con React Native, y sistemas de escritorio para Windows/Mac. También integramos con APIs externas, pasarelas de pago y sistemas existentes." },
   { q: "¿Qué son las automatizaciones con IA?",        a: "Son sistemas que trabajan solos usando inteligencia artificial. Por ejemplo: un bot que analiza tus leads, decide cuáles son buenos prospectos y te genera el mensaje de WhatsApp perfecto — todo sin que hagas nada." },
   { q: "¿Trabajan con clientes fuera de Tucumán?",     a: "Sí, trabajamos 100% remoto con clientes de toda Argentina y Latinoamérica. La comunicación es por WhatsApp, videollamada y email. La distancia no es ningún problema." },
