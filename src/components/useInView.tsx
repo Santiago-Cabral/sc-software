@@ -1,8 +1,10 @@
-// src/components/useInView.ts
-import { useEffect, useRef, useState, RefObject } from "react";
+import { useEffect, useRef, useState } from "react";
+import type React from "react";
 
-export default function useInView<T extends Element>(options?: IntersectionObserverInit) {
-  const ref = useRef<T | null>(null);
+export default function useInView<T extends HTMLElement = HTMLDivElement>(
+  options?: IntersectionObserverInit
+) {
+  const ref = useRef<T>(null);
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
@@ -13,7 +15,6 @@ export default function useInView<T extends Element>(options?: IntersectionObser
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIntersecting(true);
-            // si querés que solo aparezca una vez, desconectamos
             obs.unobserve(entry.target);
           }
         });
@@ -22,7 +23,8 @@ export default function useInView<T extends Element>(options?: IntersectionObser
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [ref, options]);
+  }, []);
 
-  return { ref: ref as RefObject<T>, isIntersecting };
+  // cast necesario en React 19 donde useRef<T>(null) retorna RefObject<T | null>
+  return { ref: ref as unknown as React.RefObject<T>, isIntersecting };
 }

@@ -1,5 +1,6 @@
 import "./WebServices.css";
 import useInView from "./useInView";
+import '../WebServices.css';
 
 export default function WebServices() {
   const { ref, isIntersecting } = useInView<HTMLDivElement>();

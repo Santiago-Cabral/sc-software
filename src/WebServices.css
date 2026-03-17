@@ -1,0 +1,208 @@
+/* ============================================================
+   WebServices.css — SC Software
+   Paleta: --accent #00E5FF
+   ============================================================ */
+
+.ws-section {
+  min-height: 100vh;
+  padding: 120px 0 100px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid bg */
+.ws-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 80%);
+  pointer-events: none;
+}
+
+.ws-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ws-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.ws-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+  margin-top: 14px;
+}
+
+.ws-desc {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 580px;
+  margin-bottom: 56px;
+}
+
+/* ── Grid ── */
+.ws-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+              transform 0.75s cubic-bezier(0.22,1,0.36,1);
+}
+
+.ws-grid.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Card ── */
+.ws-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.ws-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+
+.ws-card:hover {
+  border-color: rgba(0,229,255,0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,229,255,0.08);
+}
+
+.ws-card:hover::before { transform: scaleX(1); }
+
+.ws-support {
+  border-color: rgba(0,229,255,0.2);
+  background: linear-gradient(145deg, #0D1E2A 0%, var(--surface) 100%);
+}
+
+.ws-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.ws-card p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.68;
+  margin-bottom: 18px;
+}
+
+.ws-card ul {
+  list-style: none;
+  margin-bottom: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ws-card ul li {
+  font-size: 0.85rem;
+  color: #5A6A7A;
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.ws-card ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.68rem;
+  top: 3px;
+}
+
+/* ── Buttons ── */
+.ws-btn {
+  padding: 11px 22px;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: 0.87rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.22,1,0.36,1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ws-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.ws-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(0,229,255,0.4), 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.ws-btn:hover::before { opacity: 1; }
+.ws-btn:active { transform: translateY(0); }
+
+.ws-general {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  padding: 13px 32px;
+  font-size: 0.95rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .ws-section { padding: 80px 0 60px; }
+  .ws-container { padding: 0 16px; }
+  .ws-grid { grid-template-columns: 1fr; }
+}

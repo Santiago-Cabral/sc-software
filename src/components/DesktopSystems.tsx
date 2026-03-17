@@ -1,5 +1,6 @@
 import "./DesktopSystems.css";
 import useInView from "./useInView";
+import '../DesktopSystems.css';
 
 export default function DesktopSystems() {
   const { ref, isIntersecting } = useInView<HTMLDivElement>();
