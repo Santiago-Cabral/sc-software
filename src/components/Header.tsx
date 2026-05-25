@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 const NAV = [
   { label: "Servicios",           href: "#services" },
   { label: "IA & Automatización", href: "#ia" },
-  { label: "Planes",              href: "#plans" },
-  { label: "Proyectos",           href: "#portfolio" },
   { label: "FAQ",                 href: "#faq" },
 ];
 
