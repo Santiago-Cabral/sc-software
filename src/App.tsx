@@ -104,14 +104,14 @@ function AppRoutes() {
           element={
             <>
               <Hero />
+              <AutomationSimulator />
+              <BudgetCalculator />
               <Marquee />
               <Services />
               <AISection />
               <Metrics />
-              <AutomationSimulator />
               <DetailedServices />
-              <BudgetCalculator />
-              <Plans />
+              {/* <Plans /> */}
               {/* <Portfolio />| */}
               <FAQ />
               <Footer />
