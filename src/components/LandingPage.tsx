@@ -6,6 +6,8 @@
  */
 
 import { useEffect, useRef } from "react";
+import BudgetCalculator from "./BudgetCalculator";
+import AutomationSimulator from "./AutomationSimulator";
 
 const WA = (msg: string) =>
   `https://wa.me/5493815502176?text=${encodeURIComponent(msg)}`;
@@ -423,6 +425,9 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ══ SIMULATOR ══ */}
+      <AutomationSimulator />
+
       {/* ══ PROCESS ══ */}
       <section className="py-24 px-6" style={{ background: "var(--surface)" }}>
         <div className="sc-container">
@@ -470,6 +475,9 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* ══ CALCULATOR ══ */}
+      <BudgetCalculator />
 
       {/* ══ CTA ══ */}
       <section className="py-24 px-6" style={{ background: "var(--surface)" }}>

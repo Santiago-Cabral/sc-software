@@ -15,7 +15,9 @@ import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import SupportMaintenance from "./components/SupportMaintenance";
 import LandingPage from "./components/LandingPage";
-// import Chatbot from "./components/Chatbot";
+import Chatbot from "./components/Chatbot";
+import BudgetCalculator from "./components/BudgetCalculator";
+import AutomationSimulator from "./components/AutomationSimulator";
 
 /* ─────────────────────────────────────────────────────────
    ScrollReveal — re-observa en cada cambio de ruta y
@@ -106,7 +108,9 @@ function AppRoutes() {
               <Services />
               <AISection />
               <Metrics />
+              <AutomationSimulator />
               <DetailedServices />
+              <BudgetCalculator />
               <Plans />
               {/* <Portfolio />| */}
               <FAQ />
@@ -138,7 +142,7 @@ function AppRoutes() {
         />
       </Routes>
 
-      {/* <Chatbot /> */}
+      <Chatbot />
     </>
   );
 }
