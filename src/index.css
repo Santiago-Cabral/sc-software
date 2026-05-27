@@ -12,15 +12,23 @@
   --color-brand-border: #222222;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
   background-color: #0A0A0A;
   color: #FFFFFF;
-  cursor: none;
+  overflow-x: hidden;
+  touch-action: pan-y;
+  overscroll-behavior-x: none;
 }
 
-*, *::before, *::after {
-  cursor: none !important;
+@media (hover: hover) and (pointer: fine) {
+  html, body {
+    cursor: none;
+  }
+
+  *, *::before, *::after {
+    cursor: none !important;
+  }
 }
 
 .industrial-grid {

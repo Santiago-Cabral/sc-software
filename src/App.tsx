@@ -150,7 +150,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-brand-black industrial-grid" style={{ cursor: 'none' }}>
+    <div className="min-h-screen bg-[#0A0A0A] text-white font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-brand-black industrial-grid">
 
       <CustomCursor />
 

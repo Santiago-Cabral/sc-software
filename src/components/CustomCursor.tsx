@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import { animate } from "animejs";
 
 export default function CustomCursor() {
@@ -6,8 +7,31 @@ export default function CustomCursor() {
   const ringRef  = useRef<HTMLDivElement>(null);
   const glowRef  = useRef<HTMLDivElement>(null);
   const trailsRef = useRef<HTMLDivElement[]>([]);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
+    const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setEnabled(mql.matches);
+    update();
+
+    if (typeof mql.addEventListener === "function") {
+      mql.addEventListener("change", update);
+    } else {
+      mql.addListener(update);
+    }
+
+    return () => {
+      if (typeof mql.removeEventListener === "function") {
+        mql.removeEventListener("change", update);
+      } else {
+        mql.removeListener(update);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
+
     const dot  = dotRef.current;
     const ring = ringRef.current;
     const glow = glowRef.current;
@@ -176,7 +200,9 @@ export default function CustomCursor() {
       });
       observer.disconnect();
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) return null;
 
   return (
     <>
