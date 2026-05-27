@@ -1,0 +1,6 @@
+{
+  "name": "SC Software",
+  "description": "Estudio de desarrollo y automatización premium en Tucumán. Creamos catálogos inteligentes, sistemas de turnos y automatizaciones de WhatsApp para escalar tus ventas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

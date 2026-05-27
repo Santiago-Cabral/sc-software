@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Space+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Lexend", sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-hover: #B8860B;
+  --color-brand-black: #0A0A0A;
+  --color-brand-dark: #121212;
+  --color-brand-card: #161616;
+  --color-brand-border: #222222;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  cursor: none;
+}
+
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+.industrial-grid {
+  background-image: linear-gradient(rgba(197, 168, 128, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(197, 168, 128, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(197, 168, 128, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+/* Word-split animation base */
+.word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Particle dots */
+.particle {
+  will-change: transform, opacity;
+}
+
+/* Smooth will-change for animated cards */
+[data-pain-card],
+[data-sol-card],
+[data-stat],
+[data-footer-col] {
+  will-change: transform, opacity;
+}
+
+/* Custom scrollbar for dark premium vibe */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A880;
+}
+
