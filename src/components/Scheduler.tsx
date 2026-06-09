@@ -7,6 +7,7 @@ export default function SchedulerSection() {
   const [form, setForm] = useState<BookingFormState>({
     businessName: "",
     niche: "Gastronomía",
+    interestService: "Web/Tienda Online",
     contactName: "",
     phone: "",
     selectedDate: "Mañana (Miércoles 27/05)",
@@ -58,6 +59,7 @@ export default function SchedulerSection() {
   const messageText = `¡Hola SC Software! Acabo de reservar mi Diagnóstico de Automatización Gratis desde la web:
 🏢 Negocio: ${form.businessName}
 💼 Rubro: ${form.niche}
+🎯 Interés: ${form.interestService}
 👤 Contacto: ${form.contactName}
 📞 WhatsApp: ${form.phone}
 📅 Fecha elegida: ${form.selectedDate}
@@ -264,6 +266,21 @@ Quiero confirmar la sesión online para analizar mis fugas de WhatsApp. ¡Gracia
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Interest Service Selector */}
+                      <div>
+                        <label className="text-[10px] font-mono uppercase tracking-wider text-gray-400 block mb-1.5">Servicio de Interés Principal</label>
+                        <select
+                          value={form.interestService}
+                          onChange={(e) => setForm({ ...form, interestService: e.target.value })}
+                          className="w-full bg-[#0A0A0A] border border-brand-border p-3 text-sm text-gray-300 focus:outline-none focus:border-brand-gold rounded-xl transition font-sans cursor-pointer"
+                        >
+                          <option value="Web/Tienda Online">Web/Tienda Online</option>
+                          <option value="Sistema de gestión">Sistema de gestión</option>
+                          <option value="Bot de WhatsApp">Bot de WhatsApp</option>
+                          <option value="Diagnóstico general">Diagnóstico general</option>
+                        </select>
+                      </div>
+
                       {/* Contact Name */}
                       <div>
                         <label className="text-[10px] font-mono uppercase tracking-wider text-gray-400 block mb-1.5 font-bold">Tu Nombre de Contacto *</label>
@@ -276,7 +293,9 @@ Quiero confirmar la sesión online para analizar mis fugas de WhatsApp. ¡Gracia
                           className="w-full bg-[#0A0A0A] border border-brand-border p-3 text-sm text-white focus:outline-none focus:border-brand-gold rounded-xl transition font-sans"
                         />
                       </div>
+                    </div>
 
+                    <div className="grid grid-cols-1 gap-4">
                       {/* Phone WhatsApp */}
                       <div>
                         <label className="text-[10px] font-mono uppercase tracking-wider text-gray-400 block mb-1.5 font-bold">WhatsApp de Contacto *</label>

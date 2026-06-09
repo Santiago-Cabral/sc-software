@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Sparkles, Calendar, ShoppingCart, Activity, ArrowRight, Smartphone, MessageSquare, Send, CheckCircle2 } from "lucide-react";
+import { Sparkles, Calendar, ShoppingCart, Activity, ArrowRight, Smartphone, MessageSquare, Send, CheckCircle2, Leaf } from "lucide-react";
 import { SelectionState } from "../types";
 
 export default function InteractivePlayground() {
-  const [activeTab, setActiveTab] = useState<"brood" | "caro" | "tenistuc">("brood");
+  const [activeTab, setActiveTab] = useState<"jovita" | "brood" | "caro" | "tenistuc">("jovita");
   const [copied, setCopied] = useState(false);
 
   // Playground state for interactions
@@ -19,8 +19,34 @@ export default function InteractivePlayground() {
     deliveryAddress: "Barrio Norte, Tucumán",
     tenisCourt: "Cancha Polvo de Ladrillo 1",
     tenisTime: "21:30 hs (Noche - Con Luces)",
-    tenisDate: "Viernes"
+    tenisDate: "Viernes",
+    storeItems: [
+      { id: "frutos", name: "Mix de Frutos Secos Premium", size: "500g", price: 4500, quantity: 1 }
+    ],
+    storeAddress: "Centro, Tucumán"
   });
+
+  // Jovita Handlers
+  const handleAddStoreItem = (id: string, name: string, price: number, size: string) => {
+    const existing = state.storeItems.find(item => item.id === id && item.size === size);
+    if (existing) {
+      const updated = state.storeItems.map(item => 
+        (item.id === id && item.size === size) ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setState({ ...state, storeItems: updated });
+    } else {
+      setState({ ...state, storeItems: [...state.storeItems, { id, name, price, size, quantity: 1 }] });
+    }
+  };
+
+  const handleRemoveStoreItem = (id: string, size: string) => {
+    const updated = state.storeItems.map(item => 
+      (item.id === id && item.size === size) ? { ...item, quantity: item.quantity - 1 } : item
+    ).filter(item => item.quantity > 0);
+    setState({ ...state, storeItems: updated });
+  };
+
+  const storeTotal = state.storeItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
   // Brood handlers
   const handleBarberService = (service: string) => {
@@ -56,13 +82,15 @@ export default function InteractivePlayground() {
   const deliveryTotal = state.deliveryItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
   // Structured messages generated dynamically
+  const jovitaMessage = `¡Hola Jovita Store! 🍃 Quiero encargar:\n${state.storeItems.map(item => `*${item.quantity}x ${item.name}* (${item.size}) - $${item.price * item.quantity}`).join("\n")}\n\n📍 Envío a: ${state.storeAddress}\n💳 Pago: Transferencia\n💰 Total: $${storeTotal}\n\nEnviado desde el catálogo express SC Software.`;
+  
   const broodMessage = `¡Hola Brood! Quiero agendar mi turno:\n✂️ Servicio: ${state.barberService}\n📅 Día: ${state.barberDate}\n⏰ Horario: ${state.barberTime}\n👤 Nombre: ${state.barberName || "Cliente"}\n\nEnviado desde el sistema automatizado de SC Software.`;
 
   const caroMessage = `¡Hola Lo de Caro! 🍔 Pedido:\n${state.deliveryItems.map(item => `*${item.quantity}x ${item.name}* ($${item.price * item.quantity})`).join("\n")}\n\n📍 Envío a: ${state.deliveryAddress}\n💳 Pago: Transferencia\n💰 Total: $${deliveryTotal}\n\nEnviado desde el catálogo express SC Software.`;
 
   const tenisMessage = `¡Hola Tenistuc! Quiero reservar cancha:\n🎾 Cancha: ${state.tenisCourt}\n📅 Día: ${state.tenisDate}\n⏰ Horario: ${state.tenisTime}\n\n¿Me confirman CBU para señar? Gracias.`;
 
-  const currentMessage = activeTab === "brood" ? broodMessage : activeTab === "caro" ? caroMessage : tenisMessage;
+  const currentMessage = activeTab === "jovita" ? jovitaMessage : activeTab === "brood" ? broodMessage : activeTab === "caro" ? caroMessage : tenisMessage;
 
   const simulateSubmit = () => {
     setCopied(true);
@@ -92,10 +120,25 @@ export default function InteractivePlayground() {
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex flex-col sm:flex-row justify-center items-stretch gap-2 mb-12 max-w-3xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-12 max-w-5xl mx-auto">
+          <button
+            onClick={() => { setActiveTab("jovita"); setCopied(false); }}
+            className={`px-3 py-4 border text-sm font-sans flex items-center justify-center gap-3 transition-all duration-300 rounded-xl cursor-pointer ${
+              activeTab === "jovita"
+                ? "bg-brand-gold text-brand-black border-brand-gold font-extrabold uppercase tracking-tighter shadow-md shadow-brand-gold/10"
+                : "bg-neutral-900 border-brand-border text-gray-400 hover:text-white hover:border-brand-gold/40 font-bold uppercase tracking-tighter"
+            }`}
+          >
+            <Leaf size={16} />
+            <div className="text-left">
+              <div className="text-[10px] font-mono font-medium leading-none">E-COMMERCE DIETÉTICA</div>
+              <div className="text-sm font-sans font-extrabold mt-1">Jovita Store</div>
+            </div>
+          </button>
+
           <button
             onClick={() => { setActiveTab("brood"); setCopied(false); }}
-            className={`px-4 py-4 border text-sm font-sans flex flex-1 items-center justify-center gap-3 transition-all duration-300 rounded-xl cursor-pointer ${
+            className={`px-3 py-4 border text-sm font-sans flex items-center justify-center gap-3 transition-all duration-300 rounded-xl cursor-pointer ${
               activeTab === "brood"
                 ? "bg-brand-gold text-brand-black border-brand-gold font-extrabold uppercase tracking-tighter shadow-md shadow-brand-gold/10"
                 : "bg-neutral-900 border-brand-border text-gray-400 hover:text-white hover:border-brand-gold/40 font-bold uppercase tracking-tighter"
@@ -103,14 +146,14 @@ export default function InteractivePlayground() {
           >
             <Calendar size={16} />
             <div className="text-left">
-              <div className="text-xs font-mono font-medium leading-none">SISTEMA DE TURNOS</div>
-              <div className="text-base font-sans font-extrabold mt-1">Brood Barber Shop</div>
+              <div className="text-[10px] font-mono font-medium leading-none">SISTEMA TURNOS</div>
+              <div className="text-sm font-sans font-extrabold mt-1">Brood Barber</div>
             </div>
           </button>
 
           <button
             onClick={() => { setActiveTab("caro"); setCopied(false); }}
-            className={`px-4 py-4 border text-sm font-sans flex flex-1 items-center justify-center gap-3 transition-all duration-300 rounded-xl cursor-pointer ${
+            className={`px-3 py-4 border text-sm font-sans flex items-center justify-center gap-3 transition-all duration-300 rounded-xl cursor-pointer ${
               activeTab === "caro"
                 ? "bg-brand-gold text-brand-black border-brand-gold font-extrabold uppercase tracking-tighter shadow-md shadow-brand-gold/10"
                 : "bg-neutral-900 border-brand-border text-gray-400 hover:text-white hover:border-brand-gold/40 font-bold uppercase tracking-tighter"
@@ -118,14 +161,14 @@ export default function InteractivePlayground() {
           >
             <ShoppingCart size={16} />
             <div className="text-left">
-              <div className="text-xs font-mono font-medium leading-none">DELIVERY AUTOMÁTICO</div>
-              <div className="text-base font-sans font-extrabold mt-1">Lo de Caro Sándwiches</div>
+              <div className="text-[10px] font-mono font-medium leading-none">DELIVERY RÁPIDO</div>
+              <div className="text-sm font-sans font-extrabold mt-1">Lo de Caro</div>
             </div>
           </button>
 
           <button
             onClick={() => { setActiveTab("tenistuc"); setCopied(false); }}
-            className={`px-4 py-4 border text-sm font-sans flex flex-1 items-center justify-center gap-3 transition-all duration-300 rounded-xl cursor-pointer ${
+            className={`px-3 py-4 border text-sm font-sans flex items-center justify-center gap-3 transition-all duration-300 rounded-xl cursor-pointer ${
               activeTab === "tenistuc"
                 ? "bg-brand-gold text-brand-black border-brand-gold font-extrabold uppercase tracking-tighter shadow-md shadow-brand-gold/10"
                 : "bg-neutral-900 border-brand-border text-gray-400 hover:text-white hover:border-brand-gold/40 font-bold uppercase tracking-tighter"
@@ -133,8 +176,8 @@ export default function InteractivePlayground() {
           >
             <Activity size={16} />
             <div className="text-left">
-              <div className="text-xs font-mono font-medium leading-none"> RESERVAS DEPORTIVAS</div>
-              <div className="text-base font-sans font-extrabold mt-1">Tenistuc Complejo</div>
+              <div className="text-[10px] font-mono font-medium leading-none">RESERVAS DEPORTE</div>
+              <div className="text-sm font-sans font-extrabold mt-1">Tenistuc Oficial</div>
             </div>
           </button>
         </div>
@@ -143,7 +186,7 @@ export default function InteractivePlayground() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Panel: UI Simulation interface (7 Cols) */}
-          <div className="lg:col-span-7 glass-card p-6 sm:p-8 rounded-xl flex flex-col justify-between relative overflow-hidden">
+          <div className="lg:col-span-7 glass-card p-6 sm:p-8 rounded-xl flex flex-col justify-between relative overflow-hidden min-h-[480px]">
             <div className="absolute top-0 left-0 bg-brand-gold/10 border-r border-b border-brand-gold/20 text-brand-gold text-[10px] font-mono font-bold px-3 py-1 uppercase tracking-wider">
               CLIENTE SIMULADO (WEB INTEGRADA)
             </div>
@@ -151,6 +194,75 @@ export default function InteractivePlayground() {
             <div className="mt-6 flex-grow flex flex-col justify-center">
               <AnimatePresence mode="wait">
                 
+                {/* Jovita Store Simulation */}
+                {activeTab === "jovita" && (
+                  <motion.div
+                    key="jovita"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="space-y-6"
+                  >
+                    <div>
+                      <span className="text-xs font-mono text-brand-gold uppercase tracking-wider block">Catálogo de Productos</span>
+                      <div className="space-y-3 mt-2">
+                        {[
+                          { id: "frutos", name: "Mix de Frutos Secos Premium", price: 4500, sizes: ["250g", "500g", "1kg"] },
+                          { id: "almendras", name: "Almendras Peladas Naturales", price: 6200, sizes: ["250g", "500g"] }
+                        ].map((prod) => {
+                          const productInCart = state.storeItems.filter(item => item.id === prod.id);
+                          return (
+                            <div key={prod.id} className="bg-[#0d0d0d] border border-brand-border p-4 rounded-xl">
+                              <div className="flex justify-between items-start mb-2">
+                                <div>
+                                  <h4 className="text-sm font-sans font-bold text-white">{prod.name}</h4>
+                                  <p className="text-xs text-brand-gold font-mono mt-0.5">${prod.price.toLocaleString("es-AR")} (base)</p>
+                                </div>
+                              </div>
+                              <div className="flex flex-wrap gap-2 mt-3">
+                                {prod.sizes.map(sz => {
+                                  const qtyInCart = productInCart.find(i => i.size === sz)?.quantity || 0;
+                                  return (
+                                    <div key={sz} className="flex items-center gap-1">
+                                      {qtyInCart > 0 ? (
+                                        <div className="flex items-center gap-1 bg-neutral-900 border border-brand-gold p-1 rounded-lg">
+                                          <button onClick={() => handleRemoveStoreItem(prod.id, sz)} className="w-5 h-5 flex items-center justify-center text-xs text-brand-gold hover:bg-brand-gold/20 rounded cursor-pointer">-</button>
+                                          <span className="text-xs font-mono text-white w-3 text-center">{qtyInCart}</span>
+                                          <button onClick={() => handleAddStoreItem(prod.id, prod.name, prod.price, sz)} className="w-5 h-5 flex items-center justify-center text-xs text-brand-gold hover:bg-brand-gold/20 rounded cursor-pointer">+</button>
+                                          <span className="text-[10px] text-gray-400 ml-1 font-bold">{sz}</span>
+                                        </div>
+                                      ) : (
+                                        <button
+                                          onClick={() => handleAddStoreItem(prod.id, prod.name, prod.price, sz)}
+                                          className="px-3 py-1.5 bg-[#161616] border border-brand-border hover:border-brand-gold hover:text-white transition duration-200 text-xs font-sans text-gray-400 font-bold rounded-lg cursor-pointer"
+                                        >
+                                          {sz}
+                                        </button>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div>
+                      <span className="text-xs font-mono text-brand-gold uppercase tracking-wider block">Dirección de Envío</span>
+                      <input
+                        type="text"
+                        placeholder="Dirección, Barrio y Ciudad (Ej: Barrio Sur, Tucumán)"
+                        value={state.storeAddress}
+                        onChange={(e) => setState({ ...state, storeAddress: e.target.value })}
+                        className="w-full bg-[#0A0A0A] border border-brand-border p-3 text-xs text-white focus:outline-none focus:border-brand-gold mt-2 rounded-xl font-sans"
+                      />
+                    </div>
+                  </motion.div>
+                )}
+
                 {/* Brood Barber Simulation */}
                 {activeTab === "brood" && (
                   <motion.div
@@ -238,7 +350,7 @@ export default function InteractivePlayground() {
                     className="space-y-6"
                   >
                     <div>
-                      <span className="text-xs font-mono text-brand-gold uppercase tracking-widerBlock">Menú Interactivo Express</span>
+                      <span className="text-xs font-mono text-brand-gold uppercase tracking-wider block">Menú Interactivo Express</span>
                       <div className="space-y-2 mt-2">
                         {[
                           { id: "mila", name: "Sánguche Mila Completo", price: 9500 },
@@ -374,11 +486,11 @@ export default function InteractivePlayground() {
             {/* Header / Brand identity of phone view */}
             <div className="border-b border-brand-border pb-4 mb-4 flex items-center gap-3">
               <div className="w-10 h-10 bg-neutral-900 border border-brand-border rounded-full flex items-center justify-center font-bold text-sm text-brand-gold">
-                {activeTab === "brood" ? "BB" : activeTab === "caro" ? "LC" : "TT"}
+                {activeTab === "jovita" ? "JS" : activeTab === "brood" ? "BB" : activeTab === "caro" ? "LC" : "TT"}
               </div>
               <div>
                 <h4 className="text-sm font-sans font-bold text-white">
-                  {activeTab === "brood" ? "Brood Barber Shop 📱" : activeTab === "caro" ? "Lo de Caro ✨" : "Tenistuc Oficial 🎾"}
+                  {activeTab === "jovita" ? "Jovita Store 🍃" : activeTab === "brood" ? "Brood Barber Shop 📱" : activeTab === "caro" ? "Lo de Caro ✨" : "Tenistuc Oficial 🎾"}
                 </h4>
                 <p className="text-[10px] font-mono text-green-400">Asistente Virtual Automatizado</p>
               </div>
@@ -398,6 +510,9 @@ export default function InteractivePlayground() {
                 {/* Auto Reply Incoming Block */}
                 <div className="mr-12 bg-[#202c33] text-white p-3 rounded-lg text-xs leading-relaxed font-sans relative self-start">
                   <span className="text-[9px] font-mono text-brand-gold block mb-1">RESPUESTA AUTÓNOMA SC BOT</span>
+                  {activeTab === "jovita" && (
+                    <p>🍃 ¡Pedido de dietética recibido! Total: *${storeTotal.toLocaleString("es-AR")}*. Procesamos tu envío hacia *{state.storeAddress}*. Por favor, adjunta tu comprobante de transferencia al CBU: 000000310008453489 para preparar y despachar tus productos hoy mismo. ¡Gracias!</p>
+                  )}
                   {activeTab === "brood" && (
                     <p>¡Confirmado con éxito, {state.barberName || "Santi"}! Reservado tu turno para el *{state.barberDate}* a las *{state.barberTime}* con Matias. Se agendó automáticamente en nuestro sistema y te enviamos el recordatorio 2 horas antes. ¡Te esperamos!</p>
                   )}

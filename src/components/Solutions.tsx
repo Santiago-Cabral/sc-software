@@ -30,39 +30,30 @@ export default function SolutionsSection() {
   const solutions = [
     {
       icon: <ShoppingBag className="text-brand-gold" size={28} />,
-      title: "Catálogos Inteligentes de Pedidos",
-      sub: "Reemplazo de E-commerce pesado",
-      description: "Una web ultraveloz optimizada para móviles donde tus clientes eligen, arman su combo y confirman el pedido. Genera un link directo a tu WhatsApp con el detalle estructurado (ítems, envío, método de pago, cliente), reduciendo la charla manual a 1 solo toque.",
-      metric: "Conversión de ventas",
-      metricValue: "+40% de efectividad",
-      benefit: "Optimizado para gastronómicos y locales minoristas",
-    },
-    {
-      icon: <MessageSquareCode className="text-brand-gold" size={28} />,
-      title: "Agentes de Atención de WhatsApp",
-      sub: "Atención comercial automatizada",
-      description: "Asistentes virtuales entrenados específicamente con la información de tu negocio. No son bots rígidos de opciones: entienden frases naturales, envían fotos, cotizan presupuestos automáticos, sugieren productos complementarios y cierran la venta las 24 horas.",
-      metric: "Atención al instante",
-      metricValue: "0% chats olvidados",
-      benefit: "Disponibilidad 24/7 sin costo fijos de recepcionistas",
-    },
-    {
-      icon: <CalendarCheck className="text-brand-gold" size={28} />,
-      title: "Agendadores de Turnos Autónomos",
-      sub: "Planificación comercial integrada",
-      description: "Un link interactivo de reserva que muestra tus disponibilidades reales integradas a tu calendario. Los clientes seleccionan el servicio, eligen el profesional, pagan la seña por MercadoPago y reservan. El sistema envía recordatorios automáticos por WhatsApp reduciendo ausencias a cero.",
-      metric: "Ausentismo de clientes",
-      metricValue: "Reducción del 95%",
-      benefit: "Perfecto para barberías, estéticas, médicos y canchas de deportes",
+      title: "Páginas Web y Tiendas Online",
+      sub: "Venta directa sin comisiones",
+      description: "Sitios rápidos para vender 24/7 sin comisiones ni intermediarios. Optimizados para móviles, listos para recibir clientes y cerrar ventas automáticamente.",
+      metric: "Crecimiento de ventas",
+      metricValue: "Venta 24/7",
+      benefit: "Sin depender de apps de terceros",
     },
     {
       icon: <Code2 className="text-brand-gold" size={28} />,
-      title: "Sitios Web & Sistemas a Medida",
-      sub: "Desarrollo de Software Custom",
-      description: "Diseñamos y programamos desde landing pages corporativas de alto impacto hasta sistemas de gestión (ERPs) y plataformas personalizadas complejas. Traducimos las necesidades únicas de tu negocio en software escalable, seguro y estéticamente premium.",
-      metric: "Escalabilidad",
-      metricValue: "100% Personalizado",
-      benefit: "Desarrollos únicos para lógicas de negocio complejas",
+      title: "Sistemas de Gestión a Medida",
+      sub: "Operación comercial centralizada",
+      description: "Control de caja, ventas y de stock, olvidándose para siempre del Excel. Plataformas diseñadas a la medida exacta de los procesos internos de tu negocio.",
+      metric: "Eficiencia operativa",
+      metricValue: "Cero Errores",
+      benefit: "Información y métricas en tiempo real",
+    },
+    {
+      icon: <MessageSquareCode className="text-brand-gold" size={28} />,
+      title: "Automatización e IA en WhatsApp",
+      sub: "Asistentes virtuales inteligentes",
+      description: "Agentes virtuales que responden consultas, dan turnos y arman pedidos al instante. Entrenamiento avanzado para que hablen con el tono exacto de tu marca local.",
+      metric: "Atención al cliente",
+      metricValue: "Respuestas 24h",
+      benefit: "Liberá a tu equipo de tareas repetitivas",
     },
   ];
 
@@ -93,7 +84,7 @@ export default function SolutionsSection() {
         </div>
 
         {/* Solutions Grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {solutions.map((sol, index) => (
             <div
               key={index}

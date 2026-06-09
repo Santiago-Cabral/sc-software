@@ -1,6 +1,7 @@
 export interface BookingFormState {
   businessName: string;
   niche: string;
+  interestService: string;
   contactName: string;
   phone: string;
   selectedDate: string;
@@ -30,4 +31,6 @@ export interface SelectionState {
   tenisCourt: string;
   tenisTime: string;
   tenisDate: string;
+  storeItems: { id: string; name: string; size: string; price: number; quantity: number }[];
+  storeAddress: string;
 }
