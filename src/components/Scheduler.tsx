@@ -55,8 +55,8 @@ export default function SchedulerSection() {
     // Envía el lead por mail a s1c.softwares@gmail.com sin bloquear la animación de carga
     emailjs
       .send(
-        "service_p364b3q",
-        "template_negn76z",
+        "SERVICE_ID",
+        "TEMPLATE_ID",
         {
           negocio: form.businessName,
           rubro: form.niche,
@@ -66,7 +66,7 @@ export default function SchedulerSection() {
           fecha_elegida: form.selectedDate,
           horario_elegido: form.selectedTime,
         },
-        "NEhw8krwSmefn0lfE"
+        "PUBLIC_ID"
       )
       .catch((err) => console.error("Error enviando mail del lead:", err));
 

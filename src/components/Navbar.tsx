@@ -20,7 +20,7 @@ export default function Navbar() {
     if (!navRef.current) return;
 
     // Timeline encadenada de entrada
-    const tl = createTimeline({ easing: "easeOutExpo", defaults: { duration: 600 } });
+    const tl = createTimeline({ defaults: { duration: 600 } });
 
     // 1. Navbar baja desde arriba
     tl.add(navRef.current, {

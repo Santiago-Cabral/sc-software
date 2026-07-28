@@ -15,9 +15,8 @@ import React, { useEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
 import CustomCursor from "./components/CustomCursor";
 import PainPointsSection from "./components/PainPoints";
+import HowItWorksSection from "./components/HowItWorks";
 import CalculatorSection from "./components/Calculator";
-import SolutionsSection from "./components/Solutions";
-import InteractivePlayground from "./components/InteractivePlayground";
 import SchedulerSection from "./components/Scheduler";
 import Footer from "./components/Footer";
 import { animate, createTimeline, stagger } from "animejs";
@@ -237,11 +236,11 @@ export default function App() {
                 Agendá Diagnóstico Gratis
               </a>
               <a
-                href="#casos"
+                href="#como-funciona"
                 style={{ opacity: 0 }}
                 className="px-7 py-4 border border-brand-gold text-brand-gold bg-transparent hover:bg-brand-gold hover:text-brand-black transition-all duration-300 font-extrabold uppercase tracking-tighter text-center rounded-xl text-sm"
               >
-                Ver Casos de Éxito
+                Ver Cómo Funciona
               </a>
             </div>
 
@@ -280,8 +279,7 @@ export default function App() {
       </section>
 
       <PainPointsSection />
-      <SolutionsSection />
-      <InteractivePlayground />
+      <HowItWorksSection />
       <CalculatorSection />
       <SchedulerSection />
       <Footer />
