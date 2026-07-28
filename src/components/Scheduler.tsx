@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import emailjs from "@emailjs/browser";
 import { Calendar, Phone, ArrowRight, CornerDownRight, Check, Loader2, Award, ShieldAlert } from "lucide-react";
 import { BookingFormState } from "../types";
 
@@ -50,6 +51,25 @@ export default function SchedulerSection() {
       alert("Por favor completa los campos principales para poder generar tu diagnóstico personalizado.");
       return;
     }
+
+    // Envía el lead por mail a s1c.softwares@gmail.com sin bloquear la animación de carga
+    emailjs
+      .send(
+        "service_p364b3q",
+        "template_negn76z",
+        {
+          negocio: form.businessName,
+          rubro: form.niche,
+          servicio_interes: form.interestService,
+          contacto: form.contactName,
+          telefono: form.phone,
+          fecha_elegida: form.selectedDate,
+          horario_elegido: form.selectedTime,
+        },
+        "NEhw8krwSmefn0lfE"
+      )
+      .catch((err) => console.error("Error enviando mail del lead:", err));
+
     setLoadStep(0);
     setIsLoading(true);
   };

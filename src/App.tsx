@@ -3,6 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      [elemName: string]: any;
+    }
+  }
+}
+
 import React, { useEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
 import CustomCursor from "./components/CustomCursor";
@@ -51,7 +59,7 @@ export default function App() {
     }
 
     // ── 3. HERO ENTRANCE TIMELINE ────────────────────────────────────────────
-    const tl = createTimeline({ easing: "easeOutExpo" });
+    const tl = createTimeline();
 
     if (badgeRef.current) {
       tl.add(badgeRef.current, {
@@ -60,6 +68,7 @@ export default function App() {
         scale: [0.82, 1],
         duration: 650,
         delay: 200,
+        easing: "easeOutExpo",
       });
     }
 

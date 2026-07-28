@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { animate } from "animejs";
 
-export default function CustomCursor() {
+export default function CustomCursor(): React.ReactElement | null {
   const dotRef   = useRef<HTMLDivElement>(null);
   const ringRef  = useRef<HTMLDivElement>(null);
   const glowRef  = useRef<HTMLDivElement>(null);
@@ -204,57 +204,52 @@ export default function CustomCursor() {
 
   if (!enabled) return null;
 
-  return (
-    <>
-      {/* Outer trailing ring */}
-      <div
-        ref={ringRef}
-        style={{
-          position: "fixed",
-          top: 0, left: 0,
-          width: 36,
-          height: 36,
-          borderRadius: "50%",
-          border: "1.5px solid rgba(212,175,55,0.7)",
-          pointerEvents: "none",
-          zIndex: 9999,
-          willChange: "transform",
-          mixBlendMode: "screen",
-        }}
-      />
-
-      {/* Center dot */}
-      <div
-        ref={dotRef}
-        style={{
-          position: "fixed",
-          top: 0, left: 0,
-          width: 7,
-          height: 7,
-          borderRadius: "50%",
-          background: "#D4AF37",
-          pointerEvents: "none",
-          zIndex: 9999,
-          willChange: "transform",
-        }}
-      />
-
-      {/* Soft glow behind */}
-      <div
-        ref={glowRef}
-        style={{
-          position: "fixed",
-          top: 0, left: 0,
-          width: 80,
-          height: 80,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(212,175,55,0.25) 0%, transparent 70%)",
-          pointerEvents: "none",
-          zIndex: 9997,
-          willChange: "transform",
-          opacity: 0.12,
-        }}
-      />
-    </>
+  return React.createElement(
+    React.Fragment,
+    null,
+    React.createElement("div", {
+      ref: ringRef,
+      style: {
+        position: "fixed",
+        top: 0, left: 0,
+        width: 36,
+        height: 36,
+        borderRadius: "50%",
+        border: "1.5px solid rgba(212,175,55,0.7)",
+        pointerEvents: "none",
+        zIndex: 9999,
+        willChange: "transform",
+        mixBlendMode: "screen",
+      },
+    }),
+    React.createElement("div", {
+      ref: dotRef,
+      style: {
+        position: "fixed",
+        top: 0, left: 0,
+        width: 7,
+        height: 7,
+        borderRadius: "50%",
+        background: "#D4AF37",
+        pointerEvents: "none",
+        zIndex: 9999,
+        willChange: "transform",
+      },
+    }),
+    React.createElement("div", {
+      ref: glowRef,
+      style: {
+        position: "fixed",
+        top: 0, left: 0,
+        width: 80,
+        height: 80,
+        borderRadius: "50%",
+        background: "radial-gradient(circle, rgba(212,175,55,0.25) 0%, transparent 70%)",
+        pointerEvents: "none",
+        zIndex: 9997,
+        willChange: "transform",
+        opacity: 0.12,
+      },
+    })
   );
 }
