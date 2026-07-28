@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import emailjs from "@emailjs/browser";
@@ -45,34 +46,34 @@ export default function SchedulerSection() {
     return () => clearInterval(interval);
   }, [isLoading, form.niche, form.businessName]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.businessName || !form.contactName || !form.phone) {
-      alert("Por favor completa los campos principales para poder generar tu diagnóstico personalizado.");
-      return;
-    }
+ const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!form.businessName || !form.contactName || !form.phone) {
+    alert("Por favor completa los campos principales para poder generar tu diagnóstico personalizado.");
+    return;
+  }
 
-    // Envía el lead por mail a s1c.softwares@gmail.com sin bloquear la animación de carga
-    emailjs
-      .send(
-        "SERVICE_ID",
-        "TEMPLATE_ID",
-        {
-          negocio: form.businessName,
-          rubro: form.niche,
-          servicio_interes: form.interestService,
-          contacto: form.contactName,
-          telefono: form.phone,
-          fecha_elegida: form.selectedDate,
-          horario_elegido: form.selectedTime,
-        },
-        "PUBLIC_ID"
-      )
-      .catch((err) => console.error("Error enviando mail del lead:", err));
+  // Envía el lead por mail a s1c.softwares@gmail.com sin bloquear la animación de carga
+  emailjs
+    .send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        negocio: form.businessName,
+        rubro: form.niche,
+        servicio_interes: form.interestService,
+        contacto: form.contactName,
+        telefono: form.phone,
+        fecha_elegida: form.selectedDate,
+        horario_elegido: form.selectedTime,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .catch((err) => console.error("Error enviando mail del lead:", err));
 
-    setLoadStep(0);
-    setIsLoading(true);
-  };
+  setLoadStep(0);
+  setIsLoading(true);
+};
 
   // Build the WhatsApp api link pre-filled with the customer session details!
   const whatsappNumber = "543815502176"; // Representative team contact
