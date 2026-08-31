@@ -17,6 +17,7 @@ import CustomCursor from "./components/CustomCursor";
 import PainPointsSection from "./components/PainPoints";
 import HowItWorksSection from "./components/HowItWorks";
 import CalculatorSection from "./components/Calculator";
+import ClientDataUpload from "./components/ClientDataUpload";
 import SchedulerSection from "./components/Scheduler";
 import Footer from "./components/Footer";
 import { animate, createTimeline, stagger } from "animejs";
@@ -280,6 +281,7 @@ export default function App() {
 
       <PainPointsSection />
       <HowItWorksSection />
+      <ClientDataUpload />
       <CalculatorSection />
       <SchedulerSection />
       <Footer />
