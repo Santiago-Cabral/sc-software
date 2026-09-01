@@ -11,8 +11,6 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Problemas", href: "#problemas" },
-    { label: "Soluciones", href: "#soluciones" },
-    { label: "Casos Reales", href: "#casos" },
     { label: "Fuga Financiera", href: "#calculadora" },
   ];
 
