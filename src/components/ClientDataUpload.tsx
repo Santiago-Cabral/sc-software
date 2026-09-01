@@ -311,7 +311,7 @@ export default function ClientDataUpload() {
                     ¡Listo, {data.contactName}!
                   </h3>
                   <p className="text-gray-400 mt-2 font-light text-sm">
-                    Tus datos se cargaron en el CRM y te enviamos el mensaje por WhatsApp.
+                    Tus datos se cargaron, te enviamos el mensaje por WhatsApp.
                   </p>
                 </div>
 
@@ -323,7 +323,7 @@ export default function ClientDataUpload() {
                     className="inline-flex items-center gap-2 px-6 py-4 bg-[#25D366] hover:bg-[#20BD5A] text-white font-extrabold uppercase tracking-tighter rounded-xl transition-all duration-300 text-sm shadow-lg shadow-green-900/20"
                   >
                     <span className="text-xl">📱</span>
-                    Abrir WhatsApp con el lead
+                    Abrir WhatsApp
                   </a>
                 )}
 
